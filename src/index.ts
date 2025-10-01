@@ -9,6 +9,7 @@ const app = new Elysia();
 app.use(openapi());
 
 app.get("/", () => "Hello Elysia");
+app.get("/health", () => "OK");
 
 app.get(
   "/users",
