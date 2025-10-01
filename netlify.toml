@@ -1,0 +1,15 @@
+[build]
+  # Apenas o Bun install para instalar dependências
+  command = "bun install" 
+
+[functions]
+  # Diretório onde o Netlify deve procurar sua função
+  directory = "netlify/edge-functions" 
+
+# Configura a Edge Function
+[[edge_functions]]
+  # O nome do arquivo TypeScript/JavaScript que contém o handler.
+  # O Netlify vai usar 'index.ts' ou 'index.js' do root do seu projeto,
+  # a não ser que você o coloque em 'netlify/edge-functions/index.ts'.
+  function = "index" # Nome do arquivo do Edge Function (ex: index.ts -> index)
+  path = "/*"       # Rota que será servida pela aplicação Elysia

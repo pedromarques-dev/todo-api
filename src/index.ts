@@ -1,5 +1,6 @@
 import { openapi } from "@elysiajs/openapi";
 import { Elysia } from "elysia";
+
 import { z } from "zod";
 
 const port = process.env.PORT || 3333;
@@ -67,3 +68,8 @@ app.get(
 app.listen(port, ({ hostname, port }) =>
   console.log(`Listening on http://$${hostname}:${port}`)
 );
+
+
+export default {
+  fetch: app.fetch
+} 
