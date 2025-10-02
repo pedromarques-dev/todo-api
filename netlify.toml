@@ -1,15 +1,21 @@
+# netlify.toml
+
 [build]
-  # Apenas o Bun install para instalar dependências
+  # O comando de build só precisa instalar as dependências
   command = "bun install" 
 
+# Configuração do diretório de funções
 [functions]
-  # Diretório onde o Netlify deve procurar sua função
   directory = "netlify/edge-functions" 
+  # O Netlify vai automaticamente buscar por TS/JS nesse diretório
 
-# Configura a Edge Function
+# A SEÇÃO MAIS IMPORTANTE: CONFIGURAÇÃO DA ROTA DA EDGE FUNCTION
 [[edge_functions]]
-  # O nome do arquivo TypeScript/JavaScript que contém o handler.
-  # O Netlify vai usar 'index.ts' ou 'index.js' do root do seu projeto,
-  # a não ser que você o coloque em 'netlify/edge-functions/index.ts'.
-  function = "index" # Nome do arquivo do Edge Function (ex: index.ts -> index)
-  path = "/*"       # Rota que será servida pela aplicação Elysia
+  # 'function' deve ser o nome do seu arquivo de entrada Edge Function 
+  # (sem a extensão .ts ou .js), ou seja, 'index'.
+  function = "index" 
+  
+  # 'path' deve cobrir as rotas que você deseja que o Elysia trate.
+  # Para uma API completa, use "/*" para que *qualquer* requisição 
+  # ao seu domínio passe pela sua função Elysia.
+  path = "/*"
