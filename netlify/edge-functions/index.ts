@@ -1,4 +1,3 @@
-import { openapi } from "@elysiajs/openapi";
 import { Elysia } from "elysia";
 
 import { z } from "zod";
@@ -6,8 +5,6 @@ import { z } from "zod";
 const port = process.env.PORT || 3333;
 
 const app = new Elysia();
-
-app.use(openapi());
 
 app.get("/", () => "Hello Elysia");
 app.get("/health", () => "OK");
@@ -66,5 +63,5 @@ app.get(
 );
 
 export default {
-  fetch: app.fetch
-} 
+  fetch: app.fetch,
+};
