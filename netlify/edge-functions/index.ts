@@ -65,11 +65,6 @@ app.get(
   }
 );
 
-app.listen(port, ({ hostname, port }) =>
-  console.log(`Listening on http://$${hostname}:${port}`)
-);
-
-
 export default {
   fetch: app.fetch
 } 
