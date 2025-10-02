@@ -62,6 +62,4 @@ app.get(
   }
 );
 
-export default {
-  fetch: app.fetch,
-};
+export default app.fetch;
